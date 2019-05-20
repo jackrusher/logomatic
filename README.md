@@ -3,7 +3,7 @@
 This is an example of generating a large number of logo-like shapes
 using a simple generative system with a few tunable parameters. It is
 live as a web app at
-(http://proscenium.rusher.com/logomatic/)[http://proscenium.rusher.com/logomatic/].
+[http://proscenium.rusher.com/logomatic/](http://proscenium.rusher.com/logomatic/).
 
 ## Development workflow
 
