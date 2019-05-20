@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>logomatic</title>
+    <style>
+      body, button {font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;}
+      #controls {displat: block; width:800px;}
+      label, button {text-transform:uppercase;}
+      input[type=checkbox] {margin-right: 3em;}
+      
+      input[type=range].slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 0.7px 0;
+}
+input[type=range].slider:focus {
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 25.6px;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px #aaa, 0px 0px 0px #e6e6e6;
+  background: #e6e6e6;
+  border-radius: 0px;
+  border: 0px solid #010100;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 0px 0px 1px #aaa, 0px 0px 0px #aaa;
+  border: 0px solid #aaa;
+  height: 27px;
+  width: 18px;
+  border-radius: 0px;
+  background: rgba(66, 66, 66, 0.93);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.7px;
+}
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background: #aaa;
+}
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 25.6px;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px #570000, 0px 0px 0px #710000;
+  background: #674d4d;
+  border-radius: 0px;
+  border: 0px solid #010100;
+}
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 0px 0px 1px #670000, 0px 0px 0px #810000;
+  border: 0px solid #ff1e00;
+  height: 27px;
+  width: 18px;
+  border-radius: 0px;
+  background: rgba(255, 67, 95, 0.93);
+  cursor: pointer;
+}
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 25.6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].slider::-ms-fill-lower {
+  background: #644b4b;
+  border: 0px solid #010100;
+  border-radius: 0px;
+  box-shadow: 0px 0px 1px #570000, 0px 0px 0px #710000;
+}
+input[type=range].slider::-ms-fill-upper {
+  background: #674d4d;
+  border: 0px solid #010100;
+  border-radius: 0px;
+  box-shadow: 0px 0px 1px #570000, 0px 0px 0px #710000;
+}
+input[type=range].slider::-ms-thumb {
+  box-shadow: 0px 0px 1px #670000, 0px 0px 0px #810000;
+  border: 0px solid #ff1e00;
+  height: 27px;
+  width: 18px;
+  border-radius: 0px;
+  background: rgba(255, 67, 95, 0.93);
+  cursor: pointer;
+  height: 25.6px;
+}
+input[type=range].slider:focus::-ms-fill-lower {
+  background: #674d4d;
+}
+input[type=range].slider:focus::-ms-fill-upper {
+  background: #6a4f4f;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Logomatic</h1>
+    <div id="controls">
+      <div>
+        <label for="connections">Connection Points</label>
+        <input class="slider" type="range" id="connections" name="connections"
+               min="4" max="7" value="5"
+               onchange="logomatic.core.generate_logos();">
+
+        <label for="left-connections">Left Hand Connections</label>
+        <input class="slider" type="range" id="left-connections" name="left-connections"
+               min="2" max="7" value="2"
+               onchange="logomatic.core.generate_logos();">
+
+        <label for="right-connections">Right Hand Connections</label>
+        <input class="slider" type="range" id="right-connections" name="right-connections"
+               min="2" max="7" value="3"
+               onchange="logomatic.core.generate_logos();">
+        <label for="connections">Rotation</label>
+        <input class="slider" type="range" id="rotation" name="rotation" min="0" max="360">
+
+        <label for="line-width">Line Width</label>
+        <input class="slider" type="range" id="line-width" name="line-width" min="1.5" max="8" value="2.5">
+
+        <label for="scales">Invert</label>
+        <input type="checkbox" id="invert" name="invert" checked>
+
+        <label for="left-triangles">LH triangles</label>
+        <input type="checkbox" id="left-triangles" name="left-triangles">
+
+        <label for="right-triangles">RH triangles</label>
+        <input type="checkbox" id="right-triangles" name="right-triangles">
+
+        <button type="button" onclick="logomatic.core.generate_logos();">Re-generate</button>
+      </div>
+    </div>
+    <div id="logomatic" style="margin-top: 2em;"></div>
+    <script src="js/main.js"></script>
+    <script>logomatic.core.run_sketch()</script>
+  </body>
+</html>
